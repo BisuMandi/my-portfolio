@@ -1,3 +1,14 @@
+import { ArrowRight, Download } from 'lucide-react';
+import { Button } from '../components/Button';
+import { AnimatedBorderButton } from '../components/AnimatedBorderButton';
+import { Github, Linkedin, Twitter } from 'lucide-react';
+
+const mySocialLinks = [
+    { icon: Github , href: "#" },
+    { icon: Linkedin, href: "#" },
+    { icon: Twitter, href: "#" },
+];
+
 export const Hero = () => {
     return (
         <section className="relative min-h-screen flex items-center overflow-hidden">
@@ -53,6 +64,29 @@ export const Hero = () => {
                             <p className="text-lg text-muted-foreground max-w-lg animate-fade-in animation-delay-200">
                                 Hi, I am Bisu Mandi - Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore error architecto repellat quisquam, ex recusandae placeat alias saepe, iste facere ratione porro animi beatae delectus.
                             </p>
+                        </div>
+
+                        {/* CTAs */}
+                        <div className='flex flex-wrap gpa-4 animate-fade-in animation-delay-300'>
+                            <Button size='lg'>
+                                Contact Me <ArrowRight className='w-5 h-5'/>
+                            </Button>
+                            <AnimatedBorderButton>
+                                <Download className='w-5 h-5'/>
+                                Download CV
+                            </AnimatedBorderButton>
+                        </div>
+
+                        {/* Social links */}
+                        <div className='flex items-center gap-4 animate-fade-in animation-delay-400'>
+                            <span className='text-sm text-muted-foreground'>
+                                Follow me:
+                            </span>
+                            {mySocialLinks.map((social, index) => ( 
+                                <a key={index} href={social.href} className='p-2 rounded-full glass hover:bg-primary/10 hover:text-primary transition-all duration-300'>
+                                    {<social.icon  className='w-5 h-5'/>}
+                                </a>
+                            ))}
                         </div>
                     </div>
 
